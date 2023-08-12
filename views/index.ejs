@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Taco Recipes</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+ 
+</head>
+
+<body>
+  <h1>Taco Town 🌮</h1>
+
+  <form action="/recipe" method="POST" class="buttons">
+    <button id="playButton" type="submit" value="chicken" name="choice">🍗</button>
+    <button id="playButton" type="submit" value="beef" name="choice">🥩</button>
+    <button id="playButton" type="submit" value="fish" name="choice">🐟</button>
+    
+  </form>
+  <div id="recipeContainer" class="hidden">
+    <% if(locals.recipe){ %>
+      <!-- If no recipe yet, show: -->
+      <h2 id="recipeTitle">
+        <%= recipe.name %>
+
+      </h2>
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList">
+        <img style="width: 200px; height: 200px;position: relative;right: 70%;"
+          src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmdiYjV2M3R5YTBhdGNwcWdvYzFoNDBxNXhsMmxtNmh3YjF6b3JvMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6ZtkmiFtpBvii6uQ/giphy.gif"
+          alt="">
+        <img style="width: 200px; height: 200px;position: relative;left: 70%;"
+          src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmdiYjV2M3R5YTBhdGNwcWdvYzFoNDBxNXhsMmxtNmh3YjF6b3JvMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6ZtkmiFtpBvii6uQ/giphy.gif"
+          alt="">
+
+        <li>
+          <%= recipe.ingredients.protein.name %>, <%=recipe.ingredients.protein.preparation %>
+
+
+        </li>
+        <li>
+          <%= recipe.ingredients.salsa.name %>
+
+        </li>
+
+        <% recipe.ingredients.toppings.forEach(element=>{ %>
+          <li>
+            <%= element.quantity%> of <%= element.name %>
+          </li>
+
+
+          <% }) %>
+      </ul>
+      <% }else{%>
+        <h2>Pick your favourite taco ingredient 👆</h2>
+
+        <% } %>
+
+
+          <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+
+
+
+
+
+  </div>
+  
+</body>
+<footer style="margin-top: 100px;font-family: cursive;">
+  <h1>MADE BY MUZAMMIL AHMED KHAN</h1>
+</footer>
+
+</html>
